@@ -1,0 +1,24 @@
+{
+    "name": "Playground",
+    "dockerComposeFile": [
+        "docker-compose.yml"
+    ],
+    "service": "playground",
+    "workspaceFolder": "/workspace",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "formulahendry.code-runner",
+                "streetsidesoftware.code-spell-checker",
+                "mhutchie.git-graph",
+                "ms-azuretools.vscode-docker",
+                "ms-python.python",
+                "ms-vscode.cpptools",
+                "xaver.clang-format",
+                "llvm-vs-code-extensions.vscode-clangd",
+                "twxs.cmake",
+                "ms-vscode.cmake-tools"
+            ]
+        }
+    }
+}
