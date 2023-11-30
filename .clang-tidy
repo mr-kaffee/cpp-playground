@@ -1,0 +1,9 @@
+---
+Checks:                       '*,-llvmlibc-*,-hicpp-*,-modernize-use-trailing-return-type,-fuchsia-*,-llvm-header-guard'
+WarningsAsErrors:             ''
+HeaderFileExtensions:         ['', 'h','hh','hpp','hxx']
+ImplementationFileExtensions: ['c','cc','cpp','cxx']
+HeaderFilterRegex:            ''
+CheckOptions:
+  cppcoreguidelines-special-member-functions.AllowSoleDefaultDtor: true
+...
