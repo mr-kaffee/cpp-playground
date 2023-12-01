@@ -5,7 +5,7 @@ IndentWidth: 4
 Language: Cpp
 DerivePointerAlignment: false
 PointerAlignment: Left
-AllowShortBlocksOnASingleLine: Always
+AllowShortBlocksOnASingleLine: Empty
 AllowShortFunctionsOnASingleLine: Empty
 FixNamespaceComments: true
 ColumnLimit: 120
