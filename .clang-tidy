@@ -1,9 +1,10 @@
 ---
-Checks:                       '*,-llvmlibc-*,-hicpp-*,-modernize-use-trailing-return-type,-fuchsia-*,-llvm-header-guard'
+Checks:                       '*,-llvmlibc-*,-hicpp-*,-modernize-use-trailing-return-type,-fuchsia-*,-llvm-header-guard,-altera-unroll-loops'
 WarningsAsErrors:             ''
 HeaderFileExtensions:         ['', 'h','hh','hpp','hxx']
 ImplementationFileExtensions: ['c','cc','cpp','cxx']
 HeaderFilterRegex:            ''
 CheckOptions:
   cppcoreguidelines-special-member-functions.AllowSoleDefaultDtor: true
+  cppcoreguidelines-rvalue-reference-param-not-moved.IgnoreUnnamedParams: true
 ...

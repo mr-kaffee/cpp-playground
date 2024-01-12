@@ -6,8 +6,9 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 add_subdirectory(refs)
+add_subdirectory(lights)
 
-file(GLOB_RECURSE ALL_SOURCE_FILES refs/*.cpp refs/*.hpp)
+file(GLOB_RECURSE ALL_SOURCE_FILES refs/*.cpp refs/*.hpp lights/*.cpp lights/*.hpp)
 
 add_custom_target(
     clang-tidy

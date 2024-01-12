@@ -12,12 +12,13 @@ RUN apt-get update && apt-get install -y \
 RUN wget https://apt.llvm.org/llvm.sh \
     && chmod 755 ./llvm.sh \
     && echo -e "\n" | ./llvm.sh 17 \
-    && apt-get update && apt-get install -y clang-17 clang-format-17 clang-tidy-17 \
+    && apt-get update && apt-get install -y clang-17 clang-format-17 clang-tidy-17 clangd-17 \
     && update-alternatives --install /usr/bin/clang        clang        /usr/bin/clang-17        100 \
     && update-alternatives --install /usr/bin/clang++      clang++      /usr/bin/clang++-17      100 \
     && update-alternatives --install /usr/bin/clang-cpp    clang-cpp    /usr/bin/clang-cpp-17    100 \
     && update-alternatives --install /usr/bin/clang-format clang-format /usr/bin/clang-format-17 100 \
-    && update-alternatives --install /usr/bin/clang-tidy   clang-tidy   /usr/bin/clang-tidy-17   100
+    && update-alternatives --install /usr/bin/clang-tidy   clang-tidy   /usr/bin/clang-tidy-17   100 \
+    && update-alternatives --install /usr/bin/clangd       clangd       /usr/bin/clangd-17       100
 
 # 4) Install CMAKE
 RUN wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | gpg --dearmor - | tee /usr/share/keyrings/kitware-archive-keyring.gpg >/dev/null \
