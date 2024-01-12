@@ -51,11 +51,13 @@ class Foo {
 // NOLINTBEGIN(cppcoreguidelines-missing-std-forward,bugprone-move-forwarding-reference,google-readability-casting)
 template <typename T>
 T bar1(T&& foo) {
+    // ok
     return T(std::move(foo));
 }
 
 template <typename T>
 std::remove_reference_t<T> bar2(T&& foo) {
+    // ok
     return T(std::move(foo));
 }
 
@@ -67,6 +69,7 @@ T bar3(T&& foo) {
 
 template <typename T>
 std::remove_reference_t<T> bar4(T&& foo) {
+    // ok
     using Type = std::remove_reference_t<T>;
     return Type(std::move(foo));
 }
@@ -89,11 +92,12 @@ T bar7(T&& foo) {
 
 template <typename T>
 std::remove_reference_t<T> bar8(T&& foo) {
+    // ok
     using Type = std::remove_reference_t<T>;
     return Type{std::move(foo)};
 }
-// NOLINTEND(cppcoreguidelines-missing-std-forward,bugprone-move-forwarding-reference,google-readability-casting)
 
+// NOLINTEND(cppcoreguidelines-missing-std-forward,bugprone-move-forwarding-reference,google-readability-casting)
 
 auto constexpr var1 = 1 << 0;
 auto constexpr var2 = 1 << 1;
@@ -198,4 +202,5 @@ int main() {
 
     return 0;
 }
+
 // NOLINTEND(misc-const-correctness)
