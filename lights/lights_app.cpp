@@ -37,19 +37,26 @@ void initAndUseLights(Lights& lights) {
 }
 
 int main() {
+    std::cout << "---------------------- [START] StateMachineLights --------------------\n";
     {
-        std::cout << "---------------------- [START] StateMachineLights --------------------\n";
-        StateMachineLights syncLights{};
-        initAndUseLights(syncLights);
-        std::cout << "---------------------- [END] StateMachineLights ----------------------\n\n";
+        StateMachineLights lights{};
+        initAndUseLights(lights);
     }
+    std::cout << "---------------------- [END] StateMachineLights ----------------------\n\n";
 
+    std::cout << "---------------------- [START] CoRoutineLights -----------------------\n";
     {
-        std::cout << "---------------------- [START] CoRoutineLights -----------------------\n";
-        CoRoutineLights asyncLights{};
-        initAndUseLights(asyncLights);
-        std::cout << "---------------------- [END] CoRoutineLights -------------------------\n\n";
+        CoRoutineLights lights{};
+        initAndUseLights(lights);
     }
+    std::cout << "---------------------- [END] CoRoutineLights -------------------------\n\n";
+
+    std::cout << "---------------------- [START] ThreadLights --------------------------\n";
+    {
+        ThreadLights lights{};
+        initAndUseLights(lights);
+    }
+    std::cout << "---------------------- [END] ThreadLights ----------------------------\n\n";
 
     std::cout << "======================================================================\n";
 }
