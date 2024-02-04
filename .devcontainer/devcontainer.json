@@ -1,9 +1,7 @@
 {
-    "name": "Playground",
-    "dockerComposeFile": [
-        "docker-compose.yml"
-    ],
-    "service": "playground",
+    "name": "cpp-playground",
+    "dockerFile": "Dockerfile",
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
     "workspaceFolder": "/workspace",
     "customizations": {
         "vscode": {
