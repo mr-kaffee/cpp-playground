@@ -25,6 +25,10 @@ RUN wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/nul
     && rm /usr/share/keyrings/kitware-archive-keyring.gpg \
     && apt-get install -y kitware-archive-keyring cmake
 
+# Install plant-uml dependencies
+RUN apt-get update && apt-get install -y \
+    graphviz default-jre
+
 # Create user 'docker' with sudo privileges
 RUN useradd -ms /bin/bash docker \
     && echo 'docker ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
