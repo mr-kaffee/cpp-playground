@@ -61,7 +61,15 @@ While there is no generally accepted definition of the term co-routine, this is 
 * [Why async Rust? _Without Boats, 2023_](https://without.boats/blog/why-async-rust/)
 
 
-## (C++) Co-Routines
+## (C++) Co-Routines Toy Example
+
+The toy example contains three implementation of a `Lights` class. The user of the light class will repeatedly call the `processInput` method, which will cause the implementation to advance a state machine and print some messages to standard out.
+
+* `StateMachineLights` has an explicit, non-sequential implementation of the state machine, that is executed synchronously in the caller context. 
+* `CoRoutineLights` has a sequential, non-blocking implementation in a `run()` method, that is implicitly compiled into a state machine (whose state is stored in the heap). Whenever the implementation attempts to read an input and no input is available yet, it will yield control and resume once an input is available. The implementation comes with quite a bit of boiler plate required for the definition of types for a return object (`CoRoutineLights::Task`) and an awaiter/awaitable object (`CoRoutineLights::Input`).
+* `ThreadLights` spawns a thread which executes the task in a sequential, blocking style in a `run()` method. The `run()` method is very similar to the implementation in `CoRoutineLights`, with two differences: The thread based implementation has some extra code to terminate the thread (implemented by throwing `Interrupted`), and the non-blocking `co_await m_input` statements in the co-routine based implementation are replaced by blocking calls to `get()`. The latter change seems small, but it results in the need for resource protection (implemented using a mutex), which was not needed in the other two implementations.
+
+There is no real concurrency in this toy example. But that could be added easily by having several instances of the Lights class used in parallel, with possibly the input of one instance depending on the output of another instance (to simulate inter-task communication). No additional resource protection mechanisms would be required for this, as long as we use a single thread to drive all the instances.
 
 ### References
 
