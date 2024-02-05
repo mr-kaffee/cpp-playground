@@ -1,7 +1,10 @@
 #include <cstdint>
 #include <iostream>
 
+#include "CoRoutineLights.hpp"
 #include "Lights.hpp"
+#include "StateMachineLights.hpp"
+#include "ThreadLights.hpp"
 
 constexpr uint32_t OFF = 0;
 constexpr uint32_t GREEN = 1;
